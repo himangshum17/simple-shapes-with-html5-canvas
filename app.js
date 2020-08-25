@@ -19,7 +19,10 @@ ctx.fillRect(25, 25, 100, 100);
 for ( let i = 0; i < 50; i++) {
     let x = Math.random() * window.innerWidth;  
     let y = Math.random() * window.innerHeight;  
-    ctx.fillStyle = "rgba(225,100,140,.5)";
+    let red = Math.floor(Math.random()* 255);
+    let green = Math.floor(Math.random() * 255);
+    let blue = Math.floor(Math.random() * 255);
+    ctx.fillStyle = "rgba("+red+","+green+"," +blue+",.5 )";
     ctx.fillRect(x, y, 100, 100);
 }
 
