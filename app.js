@@ -1,11 +1,16 @@
 let canvas = document.querySelector("canvas");
-var ctx = canvas.getContext('2d');
+let ctx = canvas.getContext('2d');
+
+let gradient = ctx.createLinearGradient(50,0,150,120);
+
+gradient.addColorStop(0,"tomato");
+gradient.addColorStop(1,"blue");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 // rectangle
-ctx.fillStyle = "tomato";
+ctx.fillStyle = gradient;
 ctx.fillRect(25, 25, 100, 100);
 
 ctx.fillStyle = "coral";
