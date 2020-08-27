@@ -6,16 +6,17 @@ canvas.height = window.innerHeight;
 
 // rectangle
 
-function Rectangle(x, y, dx, dy, width, height){
+function Rectangle(x, y, dx, dy, width, height, fillStyle){
       this.x = x;
       this.y = y;
       this.dx = dx;
       this.dy = dy;
       this.width = width;
       this.height = height;
+      this.fillStyle = fillStyle;
 
       this.draw = function(){
-        ctx.fillStyle = "tomato";
+        ctx.fillStyle = this.fillStyle;
         ctx.fillRect(this.x, this.y, this.width, this.height);
       }
 
@@ -35,14 +36,18 @@ function Rectangle(x, y, dx, dy, width, height){
 let rectangleArray = [];
 
 for (let i = 0; i < 100; i++) {
-    let width = 100;
-    let height = 100;
+    let width = Math.random() * 100;
+    let height = Math.random() * 100;
     let x = Math.random() * (innerWidth - width * 2) + width;
     let y = Math.random() * (innerHeight - height * 2) + height;
     let dx = (Math.random() - 0.5) * 1;
     let dy = (Math.random() - 0.5) * 1;
+    let red = Math.floor(Math.random()* 255);
+    let green = Math.floor(Math.random() * 255);
+    let blue = Math.floor(Math.random() * 255);
+    let fillStyle = "rgba("+red+","+green+"," +blue+",.5 )";
 
-    rectangleArray.push(new Rectangle(x,y,dx,dy,width,height));
+    rectangleArray.push(new Rectangle(x,y,dx,dy,width,height,fillStyle));
 }
 
 function animation(){
